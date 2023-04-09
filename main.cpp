@@ -4,7 +4,7 @@
 #include <random>
 #include <ranges>
 #include <algorithm>
-#include <vector>
+// #include <vector>
 
 void draw_state(std::vector<int> &v, SDL_Renderer *renderer, unsigned int red, unsigned int blue)
 {
@@ -35,9 +35,7 @@ int main(int argc, char *argv[])
     // create renderer
     SDL_Window *window = nullptr;
     SDL_Renderer *renderer = nullptr;
-    SDL_CreateWindowAndRenderer(
-        100 * 10, 100 * 10, 0,
-        &window, &renderer);
+    SDL_CreateWindowAndRenderer(100 * 10, 100 * 10, 0, &window, &renderer);
     SDL_RenderSetScale(renderer, 10, 10);
 
     // sort algo
@@ -68,10 +66,10 @@ int main(int argc, char *argv[])
     }
 
     // check
-    /*if (std::ranges::is_sorted(v))
+    if (std::ranges::is_sorted(v)) // this has an error now but just use -std=c++20
     {
         std::cout << "\nsorted!\n";
-    }*/
+    }
 
-    // return 0;
+    // return 0; //TODO do i need this?
 }
